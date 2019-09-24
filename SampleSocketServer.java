@@ -11,7 +11,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class SampleSocketServer {
-	int port = 3069;
+	int port = 3119;
 	public SampleSocketServer() {
 	}
 	private void start(int port) {
