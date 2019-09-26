@@ -1,4 +1,4 @@
-//package com.mt.examples.sockets;
+package com.mt.examples.sockets;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -11,7 +11,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class SampleSocketServer {
-	int port = 3196;
+	int port = 3569;
 	public SampleSocketServer() {
 	}
 	private void start(int port) {
@@ -26,18 +26,12 @@ public class SampleSocketServer {
 			String fromClient = "";
 			String toClient = "";
 			while ((fromClient = in.readLine()) != null) {
-				System.out.println("From client: " + fromClient);
-				List<String> reversedInput = Arrays.asList(fromClient.split(""));
-				Collections.reverse(reversedInput);
-				toClient = String.join("", reversedInput);
-				System.out.println("Sending to client: " + toClient);
-				
 				if ("kill server".equalsIgnoreCase(fromClient)) {
-					out.println("Server received kill command, disconnecting");
+					System.out.println("Client killed server");
 					break;
 				}
 				else {
-					out.println(toClient);
+					System.out.println("From client: " + fromClient);
 				}
 			}
 		} catch (IOException e) {
@@ -56,19 +50,7 @@ public class SampleSocketServer {
 	public static void main(String[] arg) {
 		System.out.println("Starting Server");
 		SampleSocketServer server = new SampleSocketServer();
-		int port = -1;
-		if(arg.length > 0){
-			try{
-				port = Integer.parseInt(arg[0]);
-			}
-			catch(Exception e){
-				System.out.println("Invalid port: " + arg[0]);
-			}		
-		}
-		if(port > -1){
-			System.out.println("Server listening on port " + port);
-			server.start(port);
-		}
+		server.start(3569);
 		System.out.println("Server Stopped");
 	}
 }
