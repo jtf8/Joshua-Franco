@@ -11,7 +11,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class SampleSocketServer {
-	int port = 3569;
+	int port = 3111;
 	public SampleSocketServer() {
 	}
 	private void start(int port) {
@@ -50,7 +50,7 @@ public class SampleSocketServer {
 	public static void main(String[] arg) {
 		System.out.println("Starting Server");
 		SampleSocketServer server = new SampleSocketServer();
-		server.start(3569);
+		server.start(3111);
 		System.out.println("Server Stopped");
 	}
 }

@@ -70,7 +70,7 @@ public class SampleSocketClient {
 	}
 	public static void main(String[] args) {
 		SampleSocketClient client = new SampleSocketClient();
-		client.connect("127.0.0.1", 3569);
+		client.connect("128.235.211.21", 3111);
 		try {
 			//if start is private, it's valid here since this main is part of the class
 			client.start();
